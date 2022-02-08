@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tính tổng của a và b</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        .container{
+            border: 1px solid rgb(77, 77, 228);
+        }
+
+        .container h3{
+            background-color: rgb(77, 77, 228);
+            color: white;
+            padding: 8px 16px;
+            margin: 0 auto;
+        }
+
+        .content{
+            padding: 10px 20px;
+        }
+
+        .content button{
+            background-color: green;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            margin: auto 10px;
+            transition: 0.25s;
+        }
+        .content button:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body ng-controller="MyController">
+    <div class="container">
+        <h3>Tính tổng</h3>
+        <div class="content">
+            <button ng-click="nhapA()">Nhập Giá Trị A</button>
+            <button ng-click="nhapB()">Nhập Giá Trị B</button>
+            <button ng-click="tinhTong()">In Kết Quả</button>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('MyApp', []);
+        app.controller('MyController', function($scope) {
+            $scope.nhapA = function(){
+                $scope.a = prompt('Nhập giá trị a: ')
+            }
+            $scope.nhapB = function(){
+                $scope.b = prompt('Nhập giá trị b: ')
+            }
+            $scope.tinhTong = function(){
+                $scope.result = parseFloat($scope.a)  + parseFloat($scope.b);
+                alert('Tổng của a và b là: ' + $scope.result);
+            }
+        })
+    </script>
+
+    <!-- <script>
+        var a
+        var b
+        function nhapA(){
+            a = parseFloat(prompt('Hãy nhập giá trị cho A = ', 0))
+            return a
+        }
+
+        function nhapB(){
+            b = parseFloat(prompt('Hãy nhập giá trị cho B = ', 0))
+            return b
+        }
+
+        function tinhTong(){
+            var tong = a + b;
+            if(isNaN(tong)){
+                var sum = nhapA() + nhapB()
+                alert('Tổng của A và B là: ' + sum);
+            }else{
+                alert('Tổng của A và B là: ' + tong);
+            }
+        }
+    </script> -->
+</body>
+</html>
